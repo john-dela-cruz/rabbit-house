@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order</title>
+	<link href="css\style.css" type="text/css" rel="stylesheet"/>
+	<script src="https://kit.fontawesome.com/0f90269bde.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="header">
+		<h1>Order</h1>
+	</div>
+	<div class="menu">
+		<tr>
+			<i id="menuIcon" class="fa-solid fa-house"></i>
+			<th><a class="menuLink" href="HomePage.html">HOME</a></th>
+			<i id="menuIcon" class="fa-solid fa-clipboard"></i>
+			<th><a class="menuLink" id="current" href="OrderPage.html">ORDER</a></th>
+			<i id="menuIcon" class="fa-solid fa-circle-user"></i>
+			<th><a class="menuLink" href="AboutPage.html">ABOUT</a></th>
+		</tr>
+	</div>
+	<div class="orderField">
+		<form action="ResultPage.html" method="get">
+			<fieldset>
+				<legend>Information</legend>
+				<label>Name:</label><br/>
+				<input type="text" id="name" name="name"/><br/>
+				<label>Email:</label><br/>
+				<input type="text" id="email" name="email"/><br/>
+				<label>Message:</label><br/>
+				<input type="text" id="message" name="message"/><br/>
+			</fieldset>
+			<fieldset>
+				<legend>Category Types</legend>
+				<input type="radio" id="coffee" name="category" value="Coffee"/>
+				<label>Coffee</label><br/>
+				<input type="radio" id="tea" name="category" value="Tea"/>
+				<label>Tea</label><br/>
+				<input type="radio" id="shake" name="category" value="Shake"/>
+				<label>Shake</label><br/>	
+			</fieldset>
+			<fieldset>
+				<legend>Drinks List</legend>
+				<label>Drink:</label><br/>
+				<select id="drinkList">
+					<option id="drink" value="None">None</option>
+					<optgroup label="Coffee">
+						<option id="drink" value="Americano">Americano</option>
+						<option id="drink" value="Espresso">Espresso</option>
+						<option id="drink" value="Latte">Latte</option>
+					</optgroup>
+					<optgroup label="Tea">
+						<option id="drink" value="Jasmine Tea">Jasmine Tea</option>
+						<option id="drink" value="Green Tea">Green Tea</option>
+						<option id="drink" value="Chamomile Tea">Chamomile Tea</option>
+					</optgroup>
+					<optgroup label="Shake">
+						<option id="drink" value="Strawberry Banana">Strawberry Banana</option>
+						<option id="drink" value="Raspberry Almond">Raspberry Almond</option>
+						<option id="drink" value="Chocolate Peanut Butter">Chocolate Peanut Butter</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>Quantity</legend>
+				<input type="number" id="quantity"/>
+			</fieldset>
+			<input type="submit" id="button" onclick="getData()"/>
+		</form>
+	</div>
+	<script>
+		function getData()
+		{
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var message = document.getElementById("message").value;
+			var category;
+			var drinkList = document.getElementById("drinkList").value;
+			var quantity = document.getElementById("quantity").value;		
+				
+			if(document.getElementById("coffee").checked){
+				category = document.getElementById("coffee").value;
+			}else if(document.getElementById("tea").checked){
+				category = document.getElementById("tea").value;
+			}else if(document.getElementById("shake").checked){			
+				category = document.getElementById("shake").value;
+			}
+
+			localStorage.setItem("nameValue", name);
+			localStorage.setItem("emailValue", email);
+			localStorage.setItem("messageValue", message);
+			localStorage.setItem("typeValue", category);
+			localStorage.setItem("drinkValue", drinkList);
+			localStorage.setItem("quantityValue", quantity);
+		}
+	</script>
+</body>
+</html>

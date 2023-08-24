@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+	<link href="css\style.css" type="text/css" rel="stylesheet"/>
+	<script src="https://kit.fontawesome.com/0f90269bde.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="header">
+		<h1>Result</h1>
+	</div>
+	<div class="menu">
+		<tr>
+			<i id="menuIcon" class="fa-solid fa-house"></i>
+			<th><a class="menuLink" href="HomePage.html">HOME</a></th>
+			<i id="menuIcon" class="fa-solid fa-clipboard"></i>
+			<th><a class="menuLink" href="OrderPage.html">ORDER</a></th>
+			<i id="menuIcon" class="fa-solid fa-circle-user"></i>
+			<th><a class="menuLink" href="AboutPage.html">ABOUT</a></th>
+		</tr>
+	</div>
+	<form action="OrderPage.html" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Order</legend>
+			<p>Name: <span id="name"></span></p>
+			<p>Email: <span id="email"></span></p>
+			<p>Message: <span id="message"></span></p>
+			<p>Type of Drink: <span id="category"></span></p>
+			<p>Drink: <span id="drink"></span></p>
+			<p>Quantity: <span id="quantity"></span></p>
+		</fieldset>
+	</form>
+	<script>
+		document.getElementById("name").innerHTML=localStorage.getItem("nameValue");
+		document.getElementById("email").innerHTML=localStorage.getItem("emailValue");
+		document.getElementById("message").innerHTML=localStorage.getItem("messageValue");
+		document.getElementById("category").innerHTML=localStorage.getItem("typeValue");
+		document.getElementById("drink").innerHTML=localStorage.getItem("drinkValue");
+		document.getElementById("quantity").innerHTML=localStorage.getItem("quantityValue");
+	</script>
+</body>
+</html>
